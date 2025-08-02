@@ -41,7 +41,7 @@ function ThemeSelector() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-48 group relative flex items-center gap-2 px-4 py-2.5 bg-[#1e1e2e]/80 hover:bg-[#262637] 
+        className="w-32 sm:w-48 group relative flex items-center gap-2 px-3 sm:px-4 py-2.5 bg-[#1e1e2e]/80 hover:bg-[#262637] 
         rounded-lg transition-all duration-200 border border-gray-800/50 hover:border-gray-700"
       >
         {/* hover state bg decorator */}
@@ -49,7 +49,7 @@ function ThemeSelector() {
 
         <Palette className="w-4 h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
 
-        <span className="text-gray-300 min-w-[80px] text-left group-hover:text-white transition-colors">
+        <span className="text-gray-300 min-w-[60px] sm:min-w-[80px] text-left group-hover:text-white transition-colors text-sm sm:text-base">
           {currentTheme?.label}
         </span>
 
@@ -69,7 +69,7 @@ function ThemeSelector() {
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 mt-2 w-full min-w-[240px] bg-[#1e1e2e]/95 
-            backdrop-blur-xl rounded-xl border border-[#313244] shadow-2xl py-2 z-50"
+            backdrop-blur-xl rounded-xl border border-[#313244] shadow-2xl py-2 z-50 max-h-[60vh] overflow-hidden"
           >
             <div className="px-2 pb-2 mb-2 border-b border-gray-800/50">
               <p className="text-xs font-medium text-gray-400 px-2">Select Theme</p>

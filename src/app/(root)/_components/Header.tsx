@@ -20,13 +20,13 @@ async function Header() {
   return (
     <div className="relative z-10">
       <div
-        className="flex items-center lg:justify-between justify-center 
-        bg-[#0a0a0f]/80 backdrop-blur-xl p-6 mb-4 rounded-lg"
+        className="flex flex-col lg:flex-row lg:items-center lg:justify-between 
+        bg-[#0a0a0f]/80 backdrop-blur-xl p-4 sm:p-6 mb-4 rounded-lg gap-4 lg:gap-0"
       >
-        <div className="hidden lg:flex items-center gap-8">
+        {/* Logo and Navigation - Show on all screens */}
+        <div className="flex items-center justify-between lg:justify-start gap-4 lg:gap-8">
           <Link href="/" className="flex items-center gap-3 group relative">
             {/* Logo hover effect */}
-
             <div
               className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 
                 group-hover:opacity-100 transition-all duration-500 blur-xl"
@@ -44,17 +44,17 @@ async function Header() {
               <span className="block text-lg font-semibold bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 text-transparent bg-clip-text">
                 CodeCraft
               </span>
-              <span className="block text-xs text-blue-400/60 font-medium">
+              <span className="hidden sm:block text-xs text-blue-400/60 font-medium">
                 Interactive Code Editor
               </span>
             </div>
           </Link>
 
-          {/* Navigation */}
+          {/* Navigation - Show on all screens */}
           <nav className="flex items-center space-x-1">
             <Link
               href="/snippets"
-              className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
+              className="relative group flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-lg text-gray-300 bg-gray-800/50 
                 hover:bg-blue-500/10 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg overflow-hidden"
             >
               <div
@@ -72,32 +72,35 @@ async function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-3">
+        {/* Controls - Stack on mobile, row on desktop */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center sm:justify-start">
             <ThemeSelector />
             <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
           </div>
 
-          {!convexUser?.isPro && (
-            <Link
-              href="/pricing"
-              className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
-                to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
-                transition-all duration-300"
-            >
-              <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
-              <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
-                Pro
-              </span>
-            </Link>
-          )}
+          <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-center sm:justify-start">
+            {!convexUser?.isPro && (
+              <Link
+                href="/pricing"
+                className="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-500/40 bg-gradient-to-r from-amber-500/10 
+                  to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 
+                  transition-all duration-300"
+              >
+                <Sparkles className="w-4 h-4 text-amber-400 hover:text-amber-300" />
+                <span className="text-sm font-medium text-amber-400/90 hover:text-amber-300">
+                  Pro
+                </span>
+              </Link>
+            )}
 
-          <SignedIn>
-            <RunButton />
-          </SignedIn>
+            <SignedIn>
+              <RunButton />
+            </SignedIn>
 
-          <div className="pl-3 border-l border-gray-800">
-            <HeaderProfileBtn />
+            <div className="pl-2 sm:pl-3 border-l border-gray-800">
+              <HeaderProfileBtn />
+            </div>
           </div>
         </div>
       </div>

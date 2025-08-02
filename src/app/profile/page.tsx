@@ -63,7 +63,7 @@ function ProfilePage() {
     <div className="min-h-screen bg-[#0a0a0f]">
       <NavigationHeader />
 
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
         {/* Profile Header */}
 
         {userStats && userData && (
@@ -84,7 +84,7 @@ function ProfilePage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as "executions" | "starred")}
-                  className={`group flex items-center gap-2 px-6 py-2.5 rounded-lg transition-all duration-200 relative overflow-hidden ${
+                  className={`group flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-lg transition-all duration-200 relative overflow-hidden ${
                     activeTab === tab.id ? "text-blue-400" : "text-gray-400 hover:text-gray-300"
                   }`}
                 >
@@ -114,7 +114,7 @@ function ProfilePage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="p-6"
+              className="p-4 sm:p-6"
             >
               {/* ACTIVE TAB IS EXECUTIONS: */}
               {activeTab === "executions" && (
@@ -217,7 +217,7 @@ function ProfilePage() {
 
               {/* ACTIVE TAB IS STARS: */}
               {activeTab === "starred" && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {starredSnippets?.map((snippet) => (
                     <div key={snippet._id} className="group relative">
                       <Link href={`/snippets/${snippet._id}`}>
@@ -226,7 +226,7 @@ function ProfilePage() {
                           transition-all duration-300 overflow-hidden h-full group-hover:transform
                         group-hover:scale-[1.02]"
                         >
-                          <div className="p-6">
+                          <div className="p-4 sm:p-6">
                             <div className="flex items-center justify-between mb-4">
                               <div className="flex items-center gap-3">
                                 <div className="relative">
@@ -244,7 +244,7 @@ function ProfilePage() {
                                 </span>
                               </div>
                               <div
-                                className="absolute top-6 right-6 z-10"
+                                className="absolute top-4 sm:top-6 right-4 sm:right-6 z-10"
                                 onClick={(e) => e.preventDefault()}
                               >
                                 <StarButton snippetId={snippet._id} />
@@ -261,7 +261,7 @@ function ProfilePage() {
                               <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                             </div>
                           </div>
-                          <div className="px-6 pb-6">
+                          <div className="px-4 sm:px-6 pb-4 sm:pb-6">
                             <div className="bg-black/30 rounded-lg p-4 overflow-hidden">
                               <pre className="text-sm text-gray-300 font-mono line-clamp-3">
                                 {snippet.code}

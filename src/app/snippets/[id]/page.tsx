@@ -27,7 +27,7 @@ function SnippetDetailPage() {
       <main className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
         <div className="max-w-[1200px] mx-auto">
           {/* Header */}
-          <div className="bg-[#121218] border border-[#ffffff0a] rounded-2xl p-6 sm:p-8 mb-6 backdrop-blur-xl">
+          <div className="bg-[#121218] border border-[#ffffff0a] rounded-2xl p-4 sm:p-6 lg:p-8 mb-6 backdrop-blur-xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center size-12 rounded-xl bg-[#ffffff08] p-2.5">
@@ -73,7 +73,8 @@ function SnippetDetailPage() {
               <CopyButton code={snippet.code} />
             </div>
             <Editor
-              height="600px"
+              height="400px"
+              className="sm:h-[600px]"
               language={LANGUAGE_CONFIG[snippet.language].monacoLanguage}
               value={snippet.code}
               theme="vs-dark"
